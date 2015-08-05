@@ -77,9 +77,7 @@ def main():
 def remote_login(provider, idp_s_auth):
     sp_session = session.Session(verify=False)
     sp_u_auth = v3.Keystone2Keystone(idp_s_auth,
-                                     provider.id,
-                                     sp_url=provider.sp_url,
-                                     sp_auth_url=provider.auth_url)
+                                     provider.id)
     sp_u_auth_ref = sp_u_auth.get_access(sp_session)
 
     sp_u_client = client.Client(session=sp_session,
